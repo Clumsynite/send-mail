@@ -4,15 +4,21 @@ const router = express.Router();
 const nodemailer = require("nodemailer");
 const cors = require("cors");
 
+const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+app.use("/", router);
+
 const transport = {
   host: "smtp.gmail.com",
-  port: 587,
+  port: 465,
+  secure: true,
   auth: {
-    user: process.env.USERNAME,
-    pass: process.env.PASSWORD,
+    user: process.env.USER,
+    pass: process.env.PASS,
   },
 };
-
 const transporter = nodemailer.createTransport(transport);
 
 transporter.verify((error, success) => {
@@ -35,7 +41,6 @@ router.post("/send", (req, res, next) => {
     subject: `New Message from Contact Form By ${name}`,
     text: content,
   };
-
   transporter.sendMail(mail, (err, data) => {
     if (err) {
       res.json({
@@ -45,6 +50,7 @@ router.post("/send", (req, res, next) => {
       res.json({
         status: "success",
       });
+
       transporter.sendMail(
         {
           from: "clusmsyknight@gmail.com",
@@ -64,8 +70,4 @@ router.post("/send", (req, res, next) => {
   });
 });
 
-const app = express();
-app.use(cors());
-app.use(express.json());
-app.use("/", router);
 app.listen(process.env.PORT || 5000);
