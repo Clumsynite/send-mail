@@ -19,14 +19,7 @@ const transport = {
     pass: process.env.PASS,
   },
 };
-// const test = {
-//   host: "localhost",
-//   port: 1025,
-//   auth: {
-//     user: "project.1",
-//     pass: "secret.1",
-//   },
-// };
+
 const transporter = nodemailer.createTransport(transport);
 
 transporter.verify((error, success) => {
@@ -85,21 +78,6 @@ router.post("/send", (req, res, next) => {
     text: content,
     html: selfHTML,
   };
-  // let nodemessage = {
-  //   from: "Nodemailer <example@nodemailer.com>",
-  //   to: "Nodemailer <example@nodemailer.com>",
-  //   // to: "clusmsyknight@gmail.com",
-  //   subject: "AMP4EMAIL message",
-  //   // text: "For clients with plaintext support only",
-  //   // html: `
-  //   // <body style="background-color: black;"><h1 style="width: 100%; text-align: center; color: #00ffbf">TEST</h1>
-  //   // </body>`,
-  //   text: `Thank you for contacting me!\n\nForm details\nName: ${name}\nEmail: ${email}\nMessage: ${message}\n\nI'll try to get back to you ASAP.\n\n- Clumsyknight`,
-  //   html: userHTML,
-  // };
-  // transporter.sendMail(nodemessage, (err, info) => {
-  //   console.log(err || info);
-  // });
 
   transporter.sendMail(mail, (err, data) => {
     if (err) {
