@@ -41,7 +41,7 @@ router.post("/send", (req, res, next) => {
     signature: "#4dff79",
     link: "#00ffbf",
     text: "aquamarine",
-    info: "#5f9ea0",
+    info: "#42babd",
   };
   const fonts = { text: "16px", signature: "19px", info: "12px" };
   const selfHTML = `
@@ -64,7 +64,7 @@ router.post("/send", (req, res, next) => {
     <p style="color: ${colors.text}; font-size: ${fonts.text};white-space: pre;"><b>Message: </b> ${message}</p>
 
     <p style="color: ${colors.signature}; font-size: ${fonts.signature}; width: 100%; text-align: right">I'll try to get back to you ASAP<br/> - <em>Rishabh Pathak</em></p>
-    
+
     </div>
     <div style="color:${colors.info}; font-size: ${fonts.info}; width: 100%; text-align: center; margin-top: 40px;">I apologise If you haven't filled any form and yet received this email.<br/> There might be someone else who has used your email (by mistake).
     <br/><br/>
