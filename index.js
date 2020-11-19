@@ -41,7 +41,7 @@ router.post("/send", (req, res, next) => {
     signature: "#4dff79",
     link: "#00ffbf",
     text: "aquamarine",
-    info: "cadetblue",
+    info: "#5f9ea0",
   };
   const fonts = { text: "16px", signature: "19px", info: "12px" };
   const selfHTML = `
