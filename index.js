@@ -65,9 +65,10 @@ router.post("/send", (req, res, next) => {
         <p style="color: ${colors.signature}; font-size: ${fonts.signature}; width: 100%; text-align: right">I'll try to get back to you ASAP<br/> - <em>Rishabh Pathak</em></p>
       </div>
       <div style="color:${colors.info}; font-size: ${fonts.info}; width: 100%; text-align: center; margin-top: 40px;">
-        <p>I apologise If you haven't filled any form and yet received this email.</p>
-        <p> There might be someone else who has used your email (by mistake).</p>
-        <p>Form address: <a href="${website}" target="_blank" title="Email has sent after filling this form"style=" color: ${colors.link}; text-decoration: none;"> ${website}</a>
+        I apologise If you haven't filled any form and yet received this email.<br/>
+        There might be someone else who has used your email (by mistake).
+        <p>
+          Form address: <a href="${website}" target="_blank" title="Email has sent after filling this form"style=" color: ${colors.link}; text-decoration: none;"> ${website}</a>
         </p>
       </div>
     </div>`;
@@ -94,7 +95,7 @@ router.post("/send", (req, res, next) => {
         {
           from: "clusmsyknight@gmail.com",
           to: email,
-          subject: "Submission was successful",
+          subject: `${name}'s Submission was successful`,
           text: `Thank you for contacting me!\n\nForm details\nName: ${name}\nEmail: ${email}\nMessage: ${message}\n\nI'll try to get back to you ASAP.\n\n- Clumsyknight`,
           html: userHTML,
         },
