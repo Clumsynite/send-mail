@@ -66,9 +66,11 @@ router.post("/send", (req, res, next) => {
     <p style="color: ${colors.signature}; font-size: ${fonts.signature}; width: 100%; text-align: right">I'll try to get back to you ASAP<br/> - <em>Rishabh Pathak</em></p>
 
     </div>
-    <div style="color:${colors.info}; font-size: ${fonts.info}; width: 100%; text-align: center; margin-top: 40px;">I apologise If you haven't filled any form and yet received this email.<br/> There might be someone else who has used your email (by mistake).
-    <br/><br/>
+    <div style="color:${colors.info}; font-size: ${fonts.info}; width: 100%; text-align: center; margin-top: 40px;">
+    <p>I apologise If you haven't filled any form and yet received this email.</p>
+    <p> There might be someone else who has used your email (by mistake).</p>
     Form address: <a href="${website}" target="_blank" title="Email has sent after filling this form"style=" color: ${colors.link}; text-decoration: none;"> ${website}</a>
+    </p>
     </div>
     </div>`;
 
