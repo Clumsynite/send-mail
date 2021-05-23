@@ -14,12 +14,12 @@ exports.sendMail = async (req, res) => {
     );
 
     if (!name || !email || !website || !message)
-      return res.json({ err: true, msg: "Error sending mail" });
+      return res.json({ err: true, msg: "Error sending mail", userHTML });
 
     const mail = {
       from: name,
       to: "clusmsyknight@gmail.com",
-      subject: `New Message from Contact Form By ${name}`,
+      subject: `New Message from Contact Form By ${name} @ ${new Date().toISOString()}`,
       text: content,
       html: selfHTML,
     };
@@ -36,7 +36,7 @@ exports.sendMail = async (req, res) => {
         {
           from: "clusmsyknight@gmail.com",
           to: email,
-          subject: `${name}'s Submission was successful`,
+          subject: `${name}'s Submission was successful @ ${new Date().toISOString()}`,
           text: `Thank you for contacting me!\n\nForm details\nName: ${name}\nEmail: ${email}\nMessage: ${message}\n\nI'll try to get back to you ASAP.\n\n- Clumsyknight`,
           html: userHTML,
         },
@@ -60,6 +60,6 @@ exports.sendMail = async (req, res) => {
       });
     });
   } catch (error) {
-    return res.json({ err: true, msg: "Failed to send mail" });
+    return res.json({ err: true, msg: "Failed to send mail", error });
   }
 };
